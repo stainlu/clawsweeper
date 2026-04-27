@@ -236,6 +236,8 @@ Use `--update-dashboard` to publish the latest audit health into this README
 without making every normal dashboard heartbeat scan all open GitHub items.
 Audit Health includes a copyable `item_numbers` input for reviewable findings
 such as missing eligible records, reopened archived records, and stale reviews.
+It reports stale local bookkeeping separately as reconcile cleanup so operators
+do not confuse folder repairs with items that need a fresh Codex review.
 The workflow refreshes Audit Health on a separate six-hour schedule, and it can
 be run manually with `audit_dashboard=true`.
 

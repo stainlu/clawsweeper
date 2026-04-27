@@ -3993,6 +3993,22 @@ function auditReviewTargets(result: AuditResult): string {
   return `Targeted review input: \`${numbers.join(",")}\``;
 }
 
+function pluralize(count: number, singular: string, plural = `${singular}s`): string {
+  return `${count} ${count === 1 ? singular : plural}`;
+}
+
+function auditReconcileCleanup(result: AuditResult): string {
+  const parts: string[] = [];
+  if (result.counts.staleItemRecords > 0) {
+    parts.push(pluralize(result.counts.staleItemRecords, "stale item record"));
+  }
+  if (result.counts.duplicateRecords > 0) {
+    parts.push(pluralize(result.counts.duplicateRecords, "duplicate record"));
+  }
+  if (parts.length === 0) return "Reconcile cleanup: _none_";
+  return `Reconcile cleanup: ${parts.join(", ")}`;
+}
+
 function actionableAuditFindings(result: AuditResult, limit = 3): string {
   const categories: (keyof AuditResult["findings"])[] = [
     "missingEligibleOpen",
@@ -4030,6 +4046,8 @@ Last audit: ${formatTimestamp(result.generatedAt)}
 Status: **${auditHealthStatus(result)}**
 
 ${auditReviewTargets(result)}
+
+${auditReconcileCleanup(result)}
 
 | Metric | Count |
 | --- | ---: |

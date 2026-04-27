@@ -44,6 +44,8 @@ checkpoint, and status-only commits are intentionally omitted.
   reviewed together without waiting for normal batch selection. Thanks @stainlu.
 - Added copyable targeted review inputs to Audit Health for reviewable drift
   findings. Thanks @stainlu.
+- Added separate Audit Health reconcile cleanup hints for stale local record
+  bookkeeping. Thanks @stainlu.
 
 ### Changed
 

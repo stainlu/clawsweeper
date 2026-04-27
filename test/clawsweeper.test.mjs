@@ -675,6 +675,7 @@ test("audit health section summarizes strict status and actionable findings", ()
   assert.match(section, /<!-- clawsweeper-audit:start -->/);
   assert.match(section, /Status: \*\*Action needed\*\*/);
   assert.match(section, /Targeted review input: `10,11,14`/);
+  assert.match(section, /Reconcile cleanup: 2 stale item records/);
   assert.match(section, /\| Missing eligible open records \| 1 \|/);
   assert.match(section, /\[#10\]\(https:\/\/github\.com\/openclaw\/openclaw\/issues\/10\)/);
   assert.match(section, /Missing eligible open/);
