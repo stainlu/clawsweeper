@@ -9,6 +9,8 @@ checkpoint, and status-only commits are intentionally omitted.
 
 ### Added
 
+- Added generated coding-plan artifacts for fresh `queue_fix_pr` work candidates
+  and linked them from the dashboard work-candidate tables.
 - Added a generated 1200x630 social preview card plus large-image Open Graph and
   Twitter metadata for the docs site.
 
